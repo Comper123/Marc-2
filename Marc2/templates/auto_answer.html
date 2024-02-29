@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Анкета{% endblock %}
+
+{% block content %}
+<div class="answer">
+    <h4 class="user-info">Фамилия: {{ data["surname"] }}</h4>
+    <h4 class="user-info">Имя: {{ data["name"] }}</h4>
+    <h4 class="user-info">Образование: {{ data["education"] }}</h4>
+    <h4 class="user-info">Профессия: {{ data["profession"] }}</h4>
+    <h4 class="user-info">Пол: {{ data["sex"] }}</h4>
+    <h4 class="user-info">Мотивация: {{ data["motivation"] }}</h4>
+    <h4 class="user-info">Готовы остаться на Марсе? {{ data["ready"] }}</h4>
+</div>
+{% endblock %}
