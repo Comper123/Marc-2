@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ data["title"] }}{% endblock %}
+{% block content %}
+<div class="places">
+    <h3 class="zag1">Размещение по каютам</h3>
+    {% for people in data["peoples"][1:] %}
+        {% if loop.index == 1 %}
+        <p class="people">{{ people }} - Каюта № {{ loop.index }} - Капитан корабля</p>
+        {% else %}
+        <p class="people">{{ people }} - Каюта № {{ loop.index }}</p>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

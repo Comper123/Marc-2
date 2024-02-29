@@ -61,5 +61,21 @@ def answer():
     return render_template('auto_answer.html', data=data)
 
 
+@app.route('/distribution')
+def distribution():
+    data = {
+        "title": "Размещение",
+        "peoples": [
+            'Ридли Скотт',
+            'Энди Уир',
+            'Марк Уотни',
+            'Венката Капур',
+            'Тедди Сандерс',
+            'Шон Бин',
+        ]
+    }
+    return render_template('distribution.html', data=data)
+
+
 if __name__ == "__main__":
     app.run(port=8080, host='127.0.0.1')
