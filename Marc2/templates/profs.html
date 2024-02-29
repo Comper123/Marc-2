@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>Список профессий</h2>
+<div class="ml-5">
+    {% if data["list"] == "ol" %}
+        <ol>
+        {% for prof in data["professions"] %}
+            <li class="pl-5">{{ prof }}</li>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <ul>
+        {% for prof in data["professions"] %}
+            <li class="pl-5">{{ prof }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}
