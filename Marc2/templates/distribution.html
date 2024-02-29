@@ -3,11 +3,12 @@
 
 {% block title %}{{ data["title"] }}{% endblock %}
 {% block content %}
+{% set prestige = 'Капитан корабля' %}
 <div class="places">
     <h3 class="zag1">Размещение по каютам</h3>
-    {% for people in data["peoples"][1:] %}
+    {% for people in data["peoples"] %}
         {% if loop.index == 1 %}
-        <p class="people">{{ people }} - Каюта № {{ loop.index }} - Капитан корабля</p>
+        <p class="people">{{ people }} - Каюта № {{ loop.index }} - {{ prestige }}</p>
         {% else %}
         <p class="people">{{ people }} - Каюта № {{ loop.index }}</p>
         {% endif %}
