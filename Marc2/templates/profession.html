@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% if 'строитель' in data["prof"] or "инженер" in data["prof"]%}
+        <h3 class="ml-5">Инженерные тренажеры</h3>
+        <img src="{{ url_for('static', filename='img/plan1.jpg') }}" alt="План космического корабля">
+    {% else %}
+        <h3 class="ml-5">Научные симуляторы</h3>
+        <img src="{{ url_for('static', filename='img/plan2.jpg') }}" alt="План космического корабля">
+    {% endif %}
+{% endblock %}
