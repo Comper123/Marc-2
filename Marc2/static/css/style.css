@@ -21,3 +21,31 @@
     padding-left: 20px;
     margin-bottom: 20px;
 }
+
+.member{
+    width: 800px;
+    height: 800px;
+    margin-top: 50px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member_image{
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.name{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.profs_name{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+}

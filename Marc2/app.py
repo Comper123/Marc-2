@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-
+import json
 
 app = Flask(__name__)
 
@@ -75,6 +75,16 @@ def distribution():
         ]
     }
     return render_template('distribution.html', data=data)
+
+
+@app.route("/member")
+def member():
+    with open('templates/members.json', "rt", encoding="utf8") as f:
+        members = json.loads(f.read())
+    data = {
+        "members": members
+    }
+    return render_template('member.html', data=data)
 
 
 if __name__ == "__main__":
