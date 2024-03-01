@@ -80,3 +80,17 @@
     background-size: cover;
     object-fit: cover;
 }
+
+.start{
+    display: flex;
+    margin-top: 50px;
+}
+
+.login{
+    margin-left: 50px;
+    width: 700px;
+}
+
+.login form{
+    margin-top: 50px;
+}

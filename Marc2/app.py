@@ -1,9 +1,15 @@
 from flask import Flask
 from flask import render_template
-from flask import request
+from flask import request, redirect
 import json
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
+
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
 @app.route('/index/<title>')
@@ -94,6 +100,25 @@ def table(male, age):
         "age": age
     }
     return render_template('table.html', data=data)
+
+
+class LoginForm(FlaskForm):
+    your_id = StringField('id астронавта', validators=[DataRequired()])
+    your_pwd = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    kap_id = StringField('id капитана', validators=[DataRequired()])
+    kap_pwd = PasswordField('Пароль капитана', validators=[DataRequired()])
+    submit = SubmitField('Доступ')
+
+
+@app.route('/login')
+def login():
+    data = {
+        "title": "Аварийный доступ"
+    }
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', data=data, title='Авторизация', form=form)
 
 
 if __name__ == "__main__":
