@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block title %}Оформление каюты{% endblock %}
+{% block content %}
+<article class="table">
+    <article>
+        <p class="zag2">Цвет стен</p>
+    </article>
+    <article>
+        <p class="zag2">Эмблема</p>
+    </article>
+    <article class="color" style="width: 200px; height: 300px;">
+        {% if data["male"] == 'male' %}
+            {% if data["age"] < 21 %}
+                <div style="background-color: rgb(130, 225, 228); width: 100%; height: 100%;"></div>
+            {% else %}
+                <div style="background-color: rgb(30, 35, 184); width: 100%; height: 100%;"></div>
+            {% endif %}
+        {% elif data["male"] == 'female' %}
+            {% if data["age"] < 21 %}
+                <div style="background-color: rgb(216, 121, 112); width: 100%; height: 100%;"></div>
+            {% else %}
+                <div style="background-color: rgb(185, 53, 9); width: 100%; height: 100%;"></div>
+            {% endif %}
+        {% endif %}
+    </article>
+    <article class="male_image">
+        {% if data["age"] < 21 %}
+            <img src="{{ url_for('static', filename='img/young.png') }}" alt="">
+        {% else %}
+            <img src="{{ url_for('static', filename='img/older.png') }}" alt="">
+        {% endif %}
+    </article>
+</article>
+{% endblock %}

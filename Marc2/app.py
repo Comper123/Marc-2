@@ -87,5 +87,14 @@ def member():
     return render_template('member.html', data=data)
 
 
+@app.route('/table/<male>/<int:age>')
+def table(male, age):
+    data = {
+        "male": male,
+        "age": age
+    }
+    return render_template('table.html', data=data)
+
+
 if __name__ == "__main__":
     app.run(port=8080, host='127.0.0.1')
