@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="carus">
+    <h1 class="text-center">Пейзажи Марса</h1>
+    <div id="myCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        {% for img in data["images"][:-1] %}
+        <div class="carousel-item">
+            {% set new_img = url_for('static', filename=img) %}
+            <img class="bd-placeholder-img" style="object-fit: cover; height: 400px;" src="{{ new_img }}" width="600px" height="400px" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        {% endfor %}
+        <div class="carousel-item active">
+            {% set im = url_for('static', filename=data["images"][-1]) %}
+            <img class="bd-placeholder-img" style="object-fit: cover; height: 400px;" src="{{ im }}" width="600px" height="400px" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+        </div>
+    </div>
+    <form class="login_form mt-5 formm" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="photo">Добавьте картинку</label>
+            <input type="file" class="form-control-file" id="photo" name="file">
+        </div>
+        <button type="submit" class=" mt-2 btn btn-primary">Отправить</button>
+    </form>
+<div>
+{% endblock %}

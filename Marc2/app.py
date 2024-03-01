@@ -121,5 +121,22 @@ def login():
     return render_template('login.html', data=data, title='Авторизация', form=form)
 
 
+images = ["img/marc1.png",
+          "img/marc2.png",
+          "img/marc3.png"]
+
+@app.route('/galery', methods=['POST', 'GET'])
+def galery():
+    data = {
+        "title": "Красная планета",
+        "images": images
+    }
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save(f"static/img/{f.filename}")
+        images.append(f"img/{f.filename}")
+    return render_template('galery.html', data=data)
+
+
 if __name__ == "__main__":
     app.run(port=8080, host='127.0.0.1')
